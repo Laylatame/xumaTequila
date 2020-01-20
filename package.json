@@ -1,0 +1,26 @@
+{
+  "name": "xuma",
+  "version": "1.0.0",
+  "description": "Xuma",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laylatame/xumaTequila.git"
+  },
+  "author": "Layla Tame",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Laylatame/xumaTequila/issues"
+  },
+  "homepage": "https://github.com/Laylatame/xumaTequila#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "materialize-css": "^1.0.0",
+    "morgan": "^1.9.1"
+  }
+}
