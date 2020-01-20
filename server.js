@@ -13,22 +13,30 @@ app.set('view engine', 'ejs');
 // use res.render to load up an ejs view file
 
 // index page 
-app.get('/index.ejs', function(req, res) {
+app.get('/', function(req, res) {
     res.render('index');
 });
 
-app.get('/shop.ejs', function(req, res) {
+app.get('/index', function(req, res) {
+    res.render('index');
+});
+
+app.get('/shop', function(req, res) {
     res.render('shop');
 });
 
-app.get('/faqs.ejs', function(req, res) {
+app.get('/faqs', function(req, res) {
     res.render('faqs');
+});
+
+app.get('/aboutUs', function(req, res) {
+    res.render('aboutUs');
 });
 
 
 
 app.listen("8080", () => {
     //When someone accesses the endpoint through the port 8080, something is going to be executed
-    console.log("The app is running on port 8080");
+    console.log("Our app is running on port 8080");
 
 });
