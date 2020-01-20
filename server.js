@@ -3,9 +3,12 @@ let bodyParser = require('body-parser');
 
 let app = express(); //Set up the endpoints
 let jsonParser = bodyParser.json();
+var path = require('path');
 
 
 //app.use(bodyParser.urlencoded({extended : true}));
+
+app.use(express.static(path.join(__dirname, '/public')));
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
