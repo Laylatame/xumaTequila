@@ -35,6 +35,10 @@ app.get("/aboutUs", function(req, res) {
   res.render("aboutUs");
 });
 
+app.get("/cart", function(req, res) {
+  res.render("cart");
+});
+
 app.listen("8080", () => {
   //When someone accesses the endpoint through the port 8080, something is going to be executed
   console.log("Our app is running on port 8080");
