@@ -9,6 +9,36 @@
             <h3 class="section-subheading text-muted">Find your liquor</h3>
           </div>
         </div>
+        <div class="showProducts">
+          <div class="filterProd">
+            <h4>FILTERS</h4>
+            <div class="priceSlider">
+              <h6>PRICE</h6>
+              <div class="priceInput">
+                <label>Min: </label>
+                <input class="form-control" id="minPrice" type="number" placeholder="$0.00" />
+              </div>
+              <div class="priceInput">
+                <label>Max:</label>
+                <input class="form-control" id="maxPrice" type="number" placeholder="$500.00" />
+              </div>
+            </div>
+            <div class="filterCategory">
+              <h6>CATEGORY</h6>
+              <div class="categProd">
+                <input type="radio" name="prodCateg" id="todos" /> <label for="todos"> Todos </label>
+              </div>
+              <div class="categProd">
+                <input type="radio" name="prodCateg" id="liquor" /> <label for="liquor"> Liquor </label>
+              </div>
+              <div>
+                <input type="radio" name="prodCateg" id="tequila" /> <label for="tequila"> Tequila </label>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="btnFilterProd">Filter</button>
+          </div>
+
+
         <div class="row">
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a
@@ -31,7 +61,6 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Coco con Tequila</h4>
-              <h6>Tequila</h6>
               <p class="text-muted">$230</p>
               <button class="btn btn-primary">Add to cart</button>
             </div>
@@ -57,7 +86,6 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Durazno con Tequila</h4>
-              <h6>Licor</h6>
               <p class="text-muted">$230</p>
               <button class="btn btn-primary">Add to cart</button>
             </div>
@@ -83,7 +111,6 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Mango con Tequila</h4>
-              <h6>Licor</h6>
               <p class="text-muted">$230</p>
               <button class="btn btn-primary">Add to cart</button>
             </div>
@@ -109,7 +136,6 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Tamarindo con Tequila</h4>
-              <h6>Licor</h6>
               <p class="text-muted">$230</p>
               <button class="btn btn-primary">Add to cart</button>
             </div>
@@ -135,7 +161,6 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Membrillo con Tequila</h4>
-              <h6>Licor</h6>
               <p class="text-muted">$230</p>
               <button class="btn btn-primary">Add to cart</button>
             </div>
@@ -161,11 +186,15 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Granada con Tequila</h4>
-              <h6>Licor</h6>
               <p class="text-muted">$230</p>
               <button class="btn btn-primary">Add to cart</button>
             </div>
           </div>
+        </div>
+        
+      
+      
+      
         </div>
       </div>
     </section>
