@@ -307,6 +307,12 @@ header.masthead .intro-text .intro-heading {
   margin: 0 0 15px;
 }
 
+#portfolio .portfolio-item img {
+  margin-left: 25%;
+  margin-right: 25%;
+  height: 320px;
+}
+
 #portfolio .portfolio-item .portfolio-link {
   position: relative;
   display: block;
