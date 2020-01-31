@@ -98,6 +98,10 @@ img::-moz-selection {
   font-weight: 700;
 }
 
+.aboutus{
+  padding:30px;
+  margin:20px;
+}
 .btn-xl {
   font-size: 18px;
   padding: 20px 40px;
@@ -699,16 +703,6 @@ ul.social-buttons li a:hover {
   height: 100%;
 }
 
-/*
-.carousel-item {  
-  height: 65vh;
-  min-height: 300px;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
 
 .carousel-item {
   height: 100vh;
@@ -729,4 +723,71 @@ ul.social-buttons li a:hover {
 .productsCard{
   padding: 40px;
   margin: 30px;
+}
+
+.popup{
+  width: 900px;
+  margin: auto;
+  text-align: center
+}
+.popup img{
+  width: 200px;
+  height: 200px;
+  cursor: pointer
+}
+.show{
+  z-index: 999;
+  display: none;
+}
+.show .overlay{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.66);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.show .img-show{
+  width: 600px;
+  height: 400px;
+  background: #FFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  overflow: hidden
+}
+.img-show span{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 99;
+  cursor: pointer;
+}
+.img-show img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  .carousel-multi-item-2 .col-md-3 {
+  float: left;
+  width: 25%;
+  max-width: 50%; } }
+  
+  .carousel-multi-item-2 .card img {
+  border-radius: 2px; }
+
+  #controles{
+    text-align: center;
+  }
+  .img-fluid{
+    height: 350px !important;
+  }
+.carousel-inner2{
+  margin-bottom: 400px;
+  margin-top:50px;
 }
