@@ -104,8 +104,8 @@ img::-moz-selection {
 }
 
 .btn-primary {
-  background-color: #fed136 !important;
-  border-color: #fed136 !important;
+  background-color: #eccc18 !important;
+  border-color: #eccc18 !important;
 }
 .btnShopNow {
   text-align: center;
@@ -113,8 +113,8 @@ img::-moz-selection {
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
-  background-color: #108bfe !important;
-  border-color: #108bfe !important;
+  background-color: #212529 !important;
+  border-color: #212529 !important;
   color: white;
 }
 
@@ -124,7 +124,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  background-color: #ffea2f;
+  background-color: #212529;
 }
 
 #mainNav .navbar-toggler {
@@ -134,7 +134,7 @@ img::-moz-selection {
   text-transform: uppercase;
   color: white;
   border: 0;
-  background-color: #fed136;
+  background-color: #212529;
 
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
@@ -142,7 +142,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-brand {
-  color: #000000cb;
+  color: white;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -152,7 +152,7 @@ img::-moz-selection {
 #mainNav .navbar-brand:active,
 #mainNav .navbar-brand:focus,
 #mainNav .navbar-brand:hover {
-  color: #0370fe;
+  color: #eccc18;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -169,7 +169,7 @@ img::-moz-selection {
 
 #mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #070707;
+  color: #eccc18;
 }
 
 .row {
@@ -214,7 +214,7 @@ img::-moz-selection {
     padding-bottom: 0px;
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
-    background-color: #eccc18;
+    background-color: #212529;
   }
   #mainNav .navbar-brand {
     font-size: 1.75em;
