@@ -39,16 +39,8 @@ app.get("/faqs", function(req, res) {
   res.render("faqs");
 });
 
-app.get("/aboutUs", function(req, res) {
-  res.render("aboutUs");
-});
-
 app.get("/cart", function(req, res) {
   res.render("cart");
-});
-
-app.get("/login", function(req, res) {
-  res.render("login");
 });
 
 app.listen("8080", () => {
