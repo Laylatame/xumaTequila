@@ -43,7 +43,9 @@ app.get("/cart", function(req, res) {
   res.render("cart");
 });
 
-app.listen("8080", () => {
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
   //When someone accesses the endpoint through the port 8080, something is going to be executed
   console.log("Our app is running on port 8080");
 });
