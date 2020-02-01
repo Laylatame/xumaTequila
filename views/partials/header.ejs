@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('head') -%>
-
+<style>
+#carrito,
+#login {
+  margin-top:15px;
+  color:black;
+  margin-left:10px;
+  margin-right:15px;
+}
+</style>
   <!-- Navigation -->
 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -22,24 +30,23 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="../index/#about"
-              >About</a
-            >
+            <a class="nav-link js-scroll-trigger" href="../index/#about">Acerca de nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="../shop">Products</a>
+            <a class="nav-link js-scroll-trigger" href="../shop">Tienda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="../faqs">FAQ</a>
+            <a class="nav-link js-scroll-trigger" href="../faqs">Preguntas Frecuentes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="fas fa-shopping-cart" href="../cart" id="carrito"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="../cart">Cart</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="../login">Login</a>
+            <a class="fas fa-user" href="../login" id="login"></a>
           </li>
         </ul>
       </div>
