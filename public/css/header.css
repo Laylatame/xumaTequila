@@ -4,3 +4,24 @@
     width: 100%;
 }
 */
+
+.close_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.close_btn:hover{
+color: black;
+background-color: white;
+}
+
+.log_btn{
+      color: black;
+      background-color: #FFC312;
+      width: 100px;
+    }
+.log_btn{
+      color: black;
+      background-color: white;
+    }
