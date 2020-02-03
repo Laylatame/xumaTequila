@@ -24,8 +24,9 @@ function writeProducts(objectProducts) {
             </a>`;
     let prodInfo = `<div class="portfolio-caption">
               <h4>${objectProducts[i].name}</h4>
-              <p class="text-muted">$${objectProducts[i].cost}</p>
-              <button class="btn btn-primary">Añadir al carrito</button>
+              <p class="text-muted" id="prodCost">$${objectProducts[i].cost}</p>
+              <p id="prodID" hidden>${objectProducts[i]._id}</p>
+              <button class="btn btn-primary addProduct">Añadir</button>
             </div>`;
 
     $("#productsDisplay").append(
@@ -69,6 +70,7 @@ function writeProducts(objectProducts) {
                   <p>
                     ${objectProducts[i].description}
                   </p>
+                  <p id="prodID" hidden>${objectProducts[i]._id}</p>
                   <ul class="list-inline">
                     <div class="row"> 
                       <li class="prodMargin">Precio:</li>
@@ -151,10 +153,13 @@ function loadProducts() {
 
 loadProducts();
 
-//cuando se haga el filtro por categorias
+//Cuando se haga el filtro por categorias
 $("#btnFilterProd").on("click", function() {
+  $("#productsDisplay").empty();
+  $("#prodModals").empty();
   category = document.querySelector('input[name="prodCateg"]:checked').id;
-  //console.log(category)
+  console.log(category);
+  llamarParaDetalleDeProducto();
 
   if (category == "todos") {
     loadProducts();
@@ -169,6 +174,7 @@ $("#btnFilterProd").on("click", function() {
       success: function(data) {
         console.log(data);
         objectProducts = data;
+        writeProducts(objectProducts);
       },
       error: function(error_msg) {
         alert(error_msg["responseText"]);
@@ -182,7 +188,7 @@ function llamarParaDetalleDeProducto() {
   // en esta variable poner el id del producto que vamos a llamar
   // el id se ocupa para la ruta
   // ahorita estamos poniendo un id xs
-  idProduct = "5e263ad639cfd834c4c6c60d";
+  idProduct = "5e33df7a3fcb7200176b6509";
 
   detallesProducto = [];
 
@@ -206,11 +212,13 @@ function llamarParaDetalleDeProducto() {
 //esto solo para probar que sirve la llamada de los detalles del producto
 //llamarParaDetalleDeProducto()
 
-function addCartItem() {
-  //los siguientes datos deberian de venir de algun lado, ahorita estan puestos para poder probar
-  idProduct = "5e263ad639cfd834c4c6c60d";
-  numberOfItems = 1;
-  costProduct = 1000;
+function addCartItem(id, numItems, prodCost) {
+  //   idProduct = "5e263ad639cfd834c4c6c60d";
+  //   numberOfItems = 1;
+  //   costProduct = 1000;
+  idProduct = id;
+  numberOfItems = numItems;
+  costProduct = prodCost;
 
   //checar si no hay un login
   if (user == null) {
@@ -265,6 +273,21 @@ function addCartItem() {
     });
   }
 }
+
+$(".addProduct").on("click", function() {
+  console.log("FUNCIONA");
+  let divContent = $(this).parent()[0].children;
+  let idProduct = divContent[2].innerText;
+  let numberOfItems = 1;
+  let costProduct = divContent[1].innerText;
+
+  costProduct = costProduct.substring(1);
+  divContent[3].innerHTML = "✔ Añadido";
+
+  //   console.log(idProduct);
+  //   console.log(costProduct);
+  addCartItem(idProduct, numberOfItems, costProduct);
+});
 
 //para probar agregado de cartItems
 //addCartItem()
