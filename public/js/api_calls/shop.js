@@ -108,7 +108,7 @@ function writeProducts(objectProducts) {
                   </ul>`;
 
     let closeModal = `<button
-                    class="btn btn-primary"
+                    class="btn btn-primary addProductModal"
                     data-dismiss="modal"
                     type="button"
                   >
@@ -287,6 +287,44 @@ $(".addProduct").on("click", function() {
   //   console.log(idProduct);
   //   console.log(costProduct);
   addCartItem(idProduct, numberOfItems, costProduct);
+});
+
+//Add product modal
+$(".addProductModal").on("click", function() {
+  let divContent = $(this).parent()[0].children;
+  let idProduct = divContent[1].innerText;
+  let numberOfItems = divContent[2].children[3].children[2].innerText;
+  let bottleSize = divContent[2].children[1].children[1].value;
+  let costProduct = divContent[2].children[0].children[1].innerText;
+
+  costProduct = costProduct.substring(1);
+  //   console.log(idProduct);
+  //   console.log(numberOfItems);
+  //   console.log(bottleSize);
+  //   console.log(costProduct);
+  if (numberOfItems > 0) {
+    divContent[3].innerHTML = "✔ Añadido";
+    addCartItem(idProduct, numberOfItems, costProduct);
+  }
+});
+
+//Increase items
+$(".restOneItem").on("click", function() {
+  console.log("FUNCIONA MENOS");
+  let divContent = $(this).parent()[0].children;
+  let numberOfItems = divContent[2].innerText;
+  let newNumber = Number(numberOfItems) - 1;
+  if (newNumber >= 0) {
+    divContent[2].innerText = newNumber;
+  }
+});
+
+$(".addOneItem").on("click", function() {
+  console.log("FUNCIONA MENOS");
+  let divContent = $(this).parent()[0].children;
+  let numberOfItems = divContent[2].innerText;
+  let newNumber = Number(numberOfItems) + 1;
+  divContent[2].innerText = newNumber;
 });
 
 //para probar agregado de cartItems

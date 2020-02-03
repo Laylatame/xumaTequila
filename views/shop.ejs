@@ -203,6 +203,7 @@
                     tequila; listas para servirse a las rocas, llevándote a
                     nuevas experiencias de sabor y frescura.
                   </p>
+                  <p id="prodID" hidden>11</p>
                   <ul class="list-inline">
                     <div class="row"> 
                       <li class="prodMargin">Price:</li>
@@ -212,13 +213,13 @@
                       <li class="prodMargin">Size:</li>
                       <select id="bottleSize">
                         <option value="0"> Select a size...</option>
-                        <option value="sm">
+                        <option value="small">
                           Small
                         </option>
-                        <option value="med">
+                        <option value="medium">
                           Medium
                         </option>
-                        <option value="lrg">
+                        <option value="large">
                           Large
                         </option>
                       </select>
@@ -229,20 +230,20 @@
                     </div>
                     <div class="row">
                       <li>Quantity:</li>
-                      <button class="btn btn-primary" type="button">-
+                      <button class="btn btn-primary restOneItem" type="button">-
                       </button>
                       <label class="form-control">1</label>
-                      <button class="btn btn-primary" type="button">+
+                      <button class="btn btn-primary addOneItem" type="button">+
                       </button>
                     </div>
                   </ul>
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-primary addProductModal"
                     data-dismiss="modal"
                     type="button"
                   >
                     <i class="fas fa-plus fa-1x"></i>
-                    Añadir
+                    Añadir al carrito
                   </button>
                   </div>
                   </div>
@@ -311,13 +312,13 @@
                           <button class="btn btn-primary" type="button">-
                           </button>
                           <label class="form-control">1</label>
-                          <button class="btn btn-primary" type="button">+
+                          <button class="btn btn-primary addProductModal" type="button">+
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
+                        Añadir al carrito
                       </button>
                     </div>
                   </div>
@@ -386,13 +387,13 @@
                           <button class="btn btn-primary" type="button">-
                           </button>
                           <label class="form-control">1</label>
-                          <button class="btn btn-primary" type="button">+
+                          <button class="btn btn-primary " type="button">+
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
+                        Añadir al carrito
                       </button>
                     </div>
                   </div>
@@ -465,9 +466,9 @@
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
+                        Añadir al carrito
                       </button>
                     </div>
                   </div>
@@ -541,9 +542,9 @@
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
+                        Añadir al carrito
                       </button>
                       <button class="btn btn-primary" data-dismiss="modal" type="button">
                         <i class="fas fa-times"></i>
@@ -620,9 +621,9 @@
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
+                        Añadir al carrito
                       </button>
                     </div>
                   </div>
