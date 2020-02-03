@@ -2,10 +2,11 @@ objectProducts = [];
 
 var user = localStorage.getItem("user");
 
-function writeProducts(objectProducts) {
+function writeProducts(objectProducts, min, max) {
   for (let i = 0; i < objectProducts.length; i++) {
-    //Product setup
-    let prodImg = `
+    if (objectProducts[i].cost >= min && objectProducts[i].cost <= max) {
+      //Product setup
+      let prodImg = `
             <a
               class="portfolio-link"
               data-toggle="modal"
@@ -22,19 +23,19 @@ function writeProducts(objectProducts) {
               alt="Tequila"
             />
             </a>`;
-    let prodInfo = `<div class="portfolio-caption">
+      let prodInfo = `<div class="portfolio-caption">
               <h4>${objectProducts[i].name}</h4>
               <p class="text-muted" id="prodCost">$${objectProducts[i].cost}</p>
               <p id="prodID" hidden>${objectProducts[i]._id}</p>
               <button class="btn btn-primary addProduct">Añadir</button>
             </div>`;
 
-    $("#productsDisplay").append(
-      `<div class="col-md-4 col-sm-6 portfolio-item"> ${prodImg} ${prodInfo} </div>`
-    );
+      $("#productsDisplay").append(
+        `<div class="col-md-4 col-sm-6 portfolio-item"> ${prodImg} ${prodInfo} </div>`
+      );
 
-    //Modal Setup
-    let modalOpen = ` <div
+      //Modal Setup
+      let modalOpen = ` <div
       class="portfolio-modal modal fade"
       id="portfolioModal${i}"
       role="dialog"
@@ -54,7 +55,7 @@ function writeProducts(objectProducts) {
                 <div class="modal-body">
                   <div>`;
 
-    let modalProdInfo = `<h2 class="text-uppercase">${objectProducts[i].name}</h2>
+      let modalProdInfo = `<h2 class="text-uppercase">${objectProducts[i].name}</h2>
                   </div>
                   <div class="prodDetails">
                   <div class="prodImage">
@@ -78,7 +79,7 @@ function writeProducts(objectProducts) {
                     </div>
                     `;
 
-    let selectDetails = `<div class="row">
+      let selectDetails = `<div class="row">
                       <li class="prodMargin">Tamaño:</li>
                       <select id="bottleSize">
                         <option value="0"> Select a size...</option>
@@ -107,7 +108,7 @@ function writeProducts(objectProducts) {
                     </div>
                   </ul>`;
 
-    let closeModal = `<button
+      let closeModal = `<button
                     class="btn btn-primary addProductModal"
                     data-dismiss="modal"
                     type="button"
@@ -125,14 +126,15 @@ function writeProducts(objectProducts) {
       </div>
     </div>`;
 
-    $("#prodModals").append(
-      `${modalOpen} ${modalProdInfo} ${selectDetails} ${closeModal}`
-    );
+      $("#prodModals").append(
+        `${modalOpen} ${modalProdInfo} ${selectDetails} ${closeModal}`
+      );
+    }
   }
 }
 
 //cuando se haga el load de la pagina, osea traer todos los productos existentes
-function loadProducts() {
+function loadProducts(min, max) {
   $.ajax({
     url: "https://apixuma.herokuapp.com/products",
     headers: {
@@ -143,7 +145,7 @@ function loadProducts() {
     success: function(data) {
       objectProducts = data;
       console.log(objectProducts);
-      writeProducts(objectProducts);
+      writeProducts(objectProducts, min, max);
     },
     error: function(error_msg) {
       alert(error_msg["responseText"]);
@@ -151,7 +153,7 @@ function loadProducts() {
   });
 }
 
-loadProducts();
+loadProducts(0, 10000);
 
 //Cuando se haga el filtro por categorias
 $("#btnFilterProd").on("click", function() {
@@ -159,10 +161,21 @@ $("#btnFilterProd").on("click", function() {
   $("#prodModals").empty();
   category = document.querySelector('input[name="prodCateg"]:checked').id;
   console.log(category);
-  llamarParaDetalleDeProducto();
+  let min = $("#minPrice").val();
+  let max = $("#maxPrice").val();
+
+  if (!min) {
+    min = 0;
+  }
+  if (!max) {
+    max = 10000;
+  }
+
+  console.log(min);
+  console.log(max);
 
   if (category == "todos") {
-    loadProducts();
+    loadProducts(min, max);
   } else {
     $.ajax({
       url: "https://apixuma.herokuapp.com/productsCat/" + category,
@@ -174,7 +187,7 @@ $("#btnFilterProd").on("click", function() {
       success: function(data) {
         console.log(data);
         objectProducts = data;
-        writeProducts(objectProducts);
+        writeProducts(objectProducts, min, max);
       },
       error: function(error_msg) {
         alert(error_msg["responseText"]);
@@ -308,7 +321,7 @@ $(".addProductModal").on("click", function() {
   }
 });
 
-//Increase items
+//Choose quantity
 $(".restOneItem").on("click", function() {
   console.log("FUNCIONA MENOS");
   let divContent = $(this).parent()[0].children;
