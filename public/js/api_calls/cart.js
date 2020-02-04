@@ -1,5 +1,10 @@
 var user = localStorage.getItem("user");
 
+    $("#continue_button").on("click", function() {
+     window.location = "/shop";
+     });
+
+
 function countItems(currCart) {
   var numItems = 0;
   for (let i = 0; i < currCart.length; i++) {
@@ -245,10 +250,11 @@ function deleteCartItems() {
 //     ready()
 // }
 
-function ready() {
-  $("#checkout_button").on("click", function() {
-    window.location = "/checkout";
-  });
+// function ready(){
+
+//     $("#continue_button").on("click", function() {
+//     window.location = "/shop";
+//     });
 
   $("#continue_button").on("click", function() {
     window.location = "/shop";
