@@ -19,7 +19,7 @@
                 <div class="form-group">
                   <input
                     class="form-control"
-                    id="name"
+                    id="nameForm"
                     type="text"
                     placeholder="Nombre *"
                     required="required"
@@ -30,7 +30,7 @@
                 <div class="form-group">
                   <input
                     class="form-control"
-                    id="email"
+                    id="emailForm"
                     type="email"
                     placeholder="Correo *"
                     required="required"
@@ -41,7 +41,7 @@
                 <div class="form-group">
                   <input
                     class="form-control"
-                    id="phone"
+                    id="phoneForm"
                     type="tel"
                     placeholder="Teléfono *"
                     required="required"
@@ -54,7 +54,7 @@
                 <div class="form-group">
                   <textarea
                     class="form-control"
-                    id="message"
+                    id="messageForm"
                     placeholder="Mensaje *"
                     required="required"
                     data-validation-required-message="Porfavor ingrese un mensaje."
@@ -68,7 +68,7 @@
                 <button
                   id="sendMessageButton"
                   class="btn btn-primary btn-xl text-uppercase"
-                  type="submit"
+                  type="button"
                 >
                   Enviar
                 </button>
@@ -88,23 +88,32 @@
         <div class="col-md-4">
           <ul class="list-inline social-buttons">
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://twitter.com/" target="_blank">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a
+                href="https://m.facebook.com/tequilalluviadeestrellas/"
+                target="_blank"
+              >
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
+              <a
+                href="https://www.instagram.com/tequilalluviadeestrellas/"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
               </a>
             </li>
           </ul>
         </div>
       </div>
     </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/api_calls/contactUs.js"></script>
   </footer>
 </footer>
