@@ -1,7 +1,7 @@
 $("#login_button").on("click", function() {
   //console.log("simon")
-  user = $("#username").val();
-  password = $("#password").val();
+  user = $("#modalLRInput10").val();
+  password = $("#modalLRInput11").val();
 
   json_to_send = {
     email: user,
