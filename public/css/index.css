@@ -63,6 +63,11 @@ h6 {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+#login,
+#carrito {
+  color: white !important;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 150px 0;
@@ -99,10 +104,10 @@ img::-moz-selection {
   font-weight: 700;
 }
 
-.aboutus{
-  padding:30px;
-  margin:20px;
-  
+.aboutus {
+  padding: 30px;
+  margin: 20px;
+
 }
 .btn-xl {
   font-size: 18px;
@@ -110,8 +115,8 @@ img::-moz-selection {
 }
 
 .btn-primary {
-  background-color: #fed136 !important;
-  border-color: #fed136 !important;
+  background-color: #eccc18 !important;
+  border-color: #eccc18 !important;
 }
 .btnShopNow {
   text-align: center;
@@ -119,18 +124,18 @@ img::-moz-selection {
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
-  background-color: #108bfe !important;
-  border-color: #108bfe !important;
+  background-color: #212529 !important;
+  border-color: #212529 !important;
   color: white;
 }
 
 .btn-primary:active,
 .btn-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
+  box-shadow: 0 0 0 0.2rem #212529 !important;
 }
 
 #mainNav {
-  background-color: #ffea2f;
+  background-color: #212529;
 }
 
 #mainNav .navbar-toggler {
@@ -140,7 +145,7 @@ img::-moz-selection {
   text-transform: uppercase;
   color: white;
   border: 0;
-  background-color: #fed136;
+  background-color: #212529;
 
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
@@ -148,7 +153,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-brand {
-  color: #000000cb;
+  color: white;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -158,7 +163,7 @@ img::-moz-selection {
 #mainNav .navbar-brand:active,
 #mainNav .navbar-brand:focus,
 #mainNav .navbar-brand:hover {
-  color: #0370fe;
+  color: #eccc18;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -175,7 +180,7 @@ img::-moz-selection {
 
 #mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #070707;
+  color: #eccc18;
 }
 
 .row {
@@ -220,7 +225,7 @@ img::-moz-selection {
     padding-bottom: 0px;
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
-    background-color: #eccc18;
+    background-color: #212529;
   }
   #mainNav .navbar-brand {
     font-size: 1.75em;
@@ -314,7 +319,7 @@ header.masthead .intro-text .intro-heading {
 }
 
 #portfolio .portfolio-item img {
-  margin-left: 25%;
+  margin-left: 20%;
   margin-right: 25%;
   height: 320px;
 }
@@ -538,10 +543,6 @@ header.masthead .intro-text .intro-heading {
   background-color: #212529;
 }
 
-
-
-
-  
 @media (min-width: 1200px) {
   .timeline > li {
     min-height: 170px;
@@ -705,7 +706,6 @@ ul.social-buttons li a:hover {
   height: 100%;
 }
 
-
 .carousel-item {
   height: 100vh;
   min-height: 600px;
@@ -722,51 +722,51 @@ ul.social-buttons li a:hover {
   padding: 5px;
 }
 
-.productsCard{
+.productsCard {
   padding: 40px;
   margin: 30px;
 }
 
-.popup{
+.popup {
   width: 900px;
   margin: auto;
-  text-align: center
+  text-align: center;
 }
-.popup img{
+.popup img {
   width: 200px;
   height: 200px;
-  cursor: pointer
+  cursor: pointer;
 }
-.show{
+.show {
   z-index: 999;
   display: none;
 }
-.show .overlay{
+.show .overlay {
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,.66);
+  background: rgba(0, 0, 0, 0.66);
   position: absolute;
   top: 0;
   left: 0;
 }
-.show .img-show{
+.show .img-show {
   width: 600px;
   height: 400px;
-  background: #FFF;
+  background: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  overflow: hidden
+  transform: translate(-50%, -50%);
+  overflow: hidden;
 }
-.img-show span{
+.img-show span {
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 99;
   cursor: pointer;
 }
-.img-show img{
+.img-show img {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -776,20 +776,23 @@ ul.social-buttons li a:hover {
 
 @media (min-width: 768px) {
   .carousel-multi-item-2 .col-md-3 {
-  float: left;
-  width: 25%;
-  max-width: 50%; } }
-  
-  .carousel-multi-item-2 .card img {
-  border-radius: 2px; }
+    float: left;
+    width: 25%;
+    max-width: 50%;
+  }
+}
 
-  #controles{
-    text-align: center;
-  }
-  .img-fluid{
-    height: 350px !important;
-  }
-.carousel-inner2{
+.carousel-multi-item-2 .card img {
+  border-radius: 2px;
+}
+
+#controles {
+  text-align: center;
+}
+.img-fluid {
+  height: 350px !important;
+}
+.carousel-inner2 {
   margin-bottom: 400px;
-  margin-top:50px;
+  margin-top: 50px;
 }

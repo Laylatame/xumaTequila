@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
   <body id="page-top">
-    <!-- Portfolio Grid -->
+    <!-- Products Grid -->
     <section class="bg-light page-section" id="portfolio">
       <div class="container">
         <div class="row">
@@ -11,9 +11,9 @@
         </div>
         <div class="showProducts">
           <div class="filterProd">
-            <h4>FILTERS</h4>
+            <h4>FILTRAR</h4>
             <div class="priceSlider">
-              <h6>PRICE</h6>
+              <h6>PRECIO</h6>
               <div class="priceInput">
                 <label>Min: </label>
                 <input class="form-control" id="minPrice" type="number" placeholder="$0.00" />
@@ -24,26 +24,26 @@
               </div>
             </div>
             <div class="filterCategory">
-              <h6>CATEGORY</h6>
+              <h6>CATEGORÍA</h6>
               <div class="categProd">
-                <input type="radio" name="prodCateg" id="todos" /> <label for="todos"> All </label>
+                <input type="radio" name="prodCateg" id="todos" checked="checked"/> <label for="todos"> Todos </label>
               </div>
               <div class="categProd">
-                <input type="radio" name="prodCateg" id="liquor" /> <label for="liquor"> Liquor </label>
+                <input type="radio" name="prodCateg" id="Licor" /> <label for="liquor"> Licor </label>
               </div>
               <div>
-                <input type="radio" name="prodCateg" id="tequila" /> <label for="tequila"> Tequila </label>
+                <input type="radio" name="prodCateg" id="Tequila" /> <label for="tequila"> Tequila </label>
               </div>
             </div>
             <button class="btn btn-primary" id="btnFilterProd">Filter</button>
           </div>
-        <div class="row">
+        <div class="row" id="productsDisplay">
           <!--Product 1-->
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a
               class="portfolio-link"
               data-toggle="modal"
-              href="#portfolioModal1"
+              href="#portfolioModal11"
             >
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
@@ -58,14 +58,15 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Coco con Tequila</h4>
-              <p class="text-muted">$230</p>
-              <button class="btn btn-primary">Add to cart</button>
+              <p class="text-muted" id="prodCost">$230</p>
+              <p id="prodID" hidden>11</p>
+              <button class="btn btn-primary active-tick addProduct">Añadir</button>
             </div>
           </div>
 
           <!--Product 2-->
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal22">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fas fa-plus fa-3x"></i>
@@ -75,15 +76,16 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Durazno con Tequila</h4>
-              <p class="text-muted">$230</p>
-              <button class="btn btn-primary">Add to cart</button>
+              <p class="text-muted" id="prodCost">$230</p>
+              <p id="prodID" hidden>22</p>
+              <button class="btn btn-primary addProduct">Añadir</button>
             </div>
           </div>
 
 
           <!--Product 3-->
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal33">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fas fa-plus fa-3x"></i>
@@ -93,15 +95,16 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Mango con Tequila</h4>
-              <p class="text-muted">$230</p>
-              <button class="btn btn-primary">Add to cart</button>
+              <p class="text-muted" id="prodCost">$230</p>
+              <p id="prodID" hidden>33</p>
+              <button class="btn btn-primary addProduct">Añadir</button>
             </div>
           </div>
 
 
           <!--Product 4-->
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal44">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fas fa-plus fa-3x"></i>
@@ -111,14 +114,15 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Tamarindo con Tequila</h4>
-              <p class="text-muted">$230</p>
-              <button class="btn btn-primary">Add to cart</button>
+              <p class="text-muted" id="prodCost">$230</p>
+              <p id="prodID" hidden>44</p>
+              <button class="btn btn-primary addProduct">Añadir</button>
             </div>
           </div>
 
           <!--Product 5-->
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal55">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fas fa-plus fa-3x"></i>
@@ -128,15 +132,16 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Membrillo con Tequila</h4>
-              <p class="text-muted">$230</p>
-              <button class="btn btn-primary">Add to cart</button>
+              <p class="text-muted" id="prodCost">$230</p>
+              <p id="prodID" hidden>55</p>
+              <button class="btn btn-primary addProduct">Añadir</button>
             </div>
           </div>
 
 
           <!--Product 6-->
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal66">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fas fa-plus fa-3x"></i>
@@ -146,8 +151,9 @@
             </a>
             <div class="portfolio-caption">
               <h4>Licor de Granada con Tequila</h4>
-              <p class="text-muted">$230</p>
-              <button class="btn btn-primary">Add to cart</button>
+              <p class="text-muted" id="prodCost">$230</p>
+              <p id="prodID" hidden>66</p>
+              <button class="btn btn-primary addProduct">Añadir</button>
             </div>
           </div>
         </div>
@@ -158,9 +164,10 @@
     <!-- Portfolio Modals -->
 
     <!-- Modal 1 -->
+    <div id="prodModals">
     <div
       class="portfolio-modal modal fade"
-      id="portfolioModal1"
+      id="portfolioModal11"
       role="dialog"
       aria-hidden="true"
       tabindex="-1"
@@ -174,7 +181,7 @@
           </div>
           <div class="container">
             <div class="row">
-              <div class="col-lg-8 mx-auto">
+              <div class="col-lg-10 mx-auto">
                 <div class="modal-body">
                   <div>
                   <!-- Project Details Go Here -->
@@ -196,6 +203,7 @@
                     tequila; listas para servirse a las rocas, llevándote a
                     nuevas experiencias de sabor y frescura.
                   </p>
+                  <p id="prodID" hidden>11</p>
                   <ul class="list-inline">
                     <div class="row"> 
                       <li class="prodMargin">Price:</li>
@@ -205,13 +213,13 @@
                       <li class="prodMargin">Size:</li>
                       <select id="bottleSize">
                         <option value="0"> Select a size...</option>
-                        <option value="sm">
+                        <option value="small">
                           Small
                         </option>
-                        <option value="med">
+                        <option value="medium">
                           Medium
                         </option>
-                        <option value="lrg">
+                        <option value="large">
                           Large
                         </option>
                       </select>
@@ -222,28 +230,20 @@
                     </div>
                     <div class="row">
                       <li>Quantity:</li>
-                      <button class="btn btn-primary" type="button">-
+                      <button class="btn btn-primary restOneItem" type="button">-
                       </button>
                       <label class="form-control">1</label>
-                      <button class="btn btn-primary" type="button">+
+                      <button class="btn btn-primary addOneItem" type="button">+
                       </button>
                     </div>
                   </ul>
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-primary addProductModal"
                     data-dismiss="modal"
                     type="button"
                   >
                     <i class="fas fa-plus fa-1x"></i>
-                    Add to Cart
-                  </button>
-                  <button
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    type="button"
-                  >
-                    <i class="fas fa-times"></i>
-                    Cancel
+                    Añadir al carrito
                   </button>
                   </div>
                   </div>
@@ -256,7 +256,7 @@
     </div>
 
     <!-- Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" role="dialog" aria-hidden="true" tabindex="-1">
+    <div class="portfolio-modal modal fade" id="portfolioModal22" role="dialog" aria-hidden="true" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -312,17 +312,13 @@
                           <button class="btn btn-primary" type="button">-
                           </button>
                           <label class="form-control">1</label>
-                          <button class="btn btn-primary" type="button">+
+                          <button class="btn btn-primary addProductModal" type="button">+
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
-                      </button>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
-                        <i class="fas fa-times"></i>
-                        Cancel
+                        Añadir al carrito
                       </button>
                     </div>
                   </div>
@@ -335,7 +331,7 @@
     </div>
 
     <!-- Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" role="dialog" aria-hidden="true" tabindex="-1">
+    <div class="portfolio-modal modal fade" id="portfolioModal33" role="dialog" aria-hidden="true" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -391,17 +387,13 @@
                           <button class="btn btn-primary" type="button">-
                           </button>
                           <label class="form-control">1</label>
-                          <button class="btn btn-primary" type="button">+
+                          <button class="btn btn-primary " type="button">+
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
-                      </button>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
-                        <i class="fas fa-times"></i>
-                        Cancel
+                        Añadir al carrito
                       </button>
                     </div>
                   </div>
@@ -414,7 +406,7 @@
     </div>
 
     <!-- Modal 4 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" role="dialog" aria-hidden="true" tabindex="-1">
+    <div class="portfolio-modal modal fade" id="portfolioModal44" role="dialog" aria-hidden="true" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -474,13 +466,9 @@
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
-                      </button>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
-                        <i class="fas fa-times"></i>
-                        Cancel
+                        Añadir al carrito
                       </button>
                     </div>
                   </div>
@@ -494,7 +482,7 @@
 
 
     <!-- Modal 5 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal5" role="dialog" aria-hidden="true" tabindex="-1">
+    <div class="portfolio-modal modal fade" id="portfolioModal55" role="dialog" aria-hidden="true" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -554,9 +542,9 @@
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
+                        Añadir al carrito
                       </button>
                       <button class="btn btn-primary" data-dismiss="modal" type="button">
                         <i class="fas fa-times"></i>
@@ -573,7 +561,7 @@
     </div>
 
     <!-- Modal 6 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" role="dialog" aria-hidden="true" tabindex="-1">
+    <div class="portfolio-modal modal fade" id="portfolioModal66" role="dialog" aria-hidden="true" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -633,13 +621,9 @@
                           </button>
                         </div>
                       </ul>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <button class="btn btn-primary addProductModal" data-dismiss="modal" type="button">
                         <i class="fas fa-plus fa-1x"></i>
-                        Add to Cart
-                      </button>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
-                        <i class="fas fa-times"></i>
-                        Cancel
+                        Añadir al carrito
                       </button>
                     </div>
                   </div>
@@ -650,6 +634,7 @@
         </div>
       </div>
     </div>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -659,6 +644,11 @@
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <script src="../js/jqBootstrapValidation.js"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/api_calls/shop.js"></script>
+    <script type="text/javascript" src="/js/api_calls/administration.js"></script>
+
   </body>
 </html>
 

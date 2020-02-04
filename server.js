@@ -5,9 +5,12 @@ let app = express(); //Set up the endpoints
 let jsonParser = bodyParser.json();
 var path = require("path");
 
+var cors = require ("cors");
+
 //app.use(bodyParser.urlencoded({extended : true}));
 
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(cors())
 
 // set the view engine to ejs
 app.set("view engine", "ejs");
@@ -39,19 +42,18 @@ app.get("/faqs", function(req, res) {
   res.render("faqs");
 });
 
-app.get("/aboutUs", function(req, res) {
-  res.render("aboutUs");
-});
-
 app.get("/cart", function(req, res) {
   res.render("cart");
 });
 
-app.get("/login", function(req, res) {
-  res.render("login");
+//admin
+app.get("/admin", function(req, res) {
+  res.render("admin");
 });
 
-app.listen("8080", () => {
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
   //When someone accesses the endpoint through the port 8080, something is going to be executed
   console.log("Our app is running on port 8080");
 });
