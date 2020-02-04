@@ -148,14 +148,13 @@ function ready(){
 
     var removeCartItemButtons = document.getElementsByClassName('btn btn-sm btn-danger')
     console.log(removeCartItemButtons)
-    for(var i = 0; i < removeCartItemButtons; i++){
+    for(var i = 0; i < removeCartItemButtons.length; i++){
         var buttona = removeCartItemButtons[i]
         buttona.addEventListener("click",removeCartItem)
     }
 }
 
 function removeCartItem(event){
-    console.log('ola')
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
     updateCartTotal()
@@ -182,7 +181,7 @@ function updateCartTotal(){
         total = total + (price*quantity)
     }
     total = Math.round(total * 100)/100
-    aux = cartRows[cartRows.length - 1].getElementsByClassName('text-right')[0].innerText = total + '$'
+    cartRows[cartRows.length - 1].getElementsByClassName('text-right')[0].innerText = total + '$'
 }
 
 function createTable(){

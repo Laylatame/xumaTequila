@@ -1,9 +1,9 @@
 $('#register_button').on('click',function(){
     console.log("simon")
-    user = $('#modalLRInput12').val()
-    name = $('#modalLRInput15').val()
+    user = $('#modalLRInput15').val()
+    name = $('#modalLRInput12').val()
 	  password = $('#modalLRInput13').val()
-	
+    
 	json_to_send = {
 		"email": user,
     "password": password,
@@ -24,7 +24,7 @@ $('#register_button').on('click',function(){
       success: function(data){
         console.log('success: '+ data);
         //localStorage.setItem('user', data.user._id);
-        window.location = '/login'
+        window.location = '/index'
       },
       error: function(error_msg) {
         alert((error_msg['responseText']));
