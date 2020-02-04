@@ -28,7 +28,7 @@ $("#sendMessageButton").on("click", function() {
     //   type: "POST",
     //   url: "https://mandrillapp.com/api/1.0/messages/send.json",
     //   data: {
-    //     key: "9544e3e101700147ebae5b962a787172-us4",
+    //     key: "",
     //     message: {
     //       from_email: "a01192934@itesm.mx",
     //       to: [
