@@ -182,9 +182,8 @@ function updateCartTotal(){
         var quantity = quantityElement.value
         total = total + (price*quantity)
     }
-    totalR = cartRows.length - 1
-    aux = cartRows[totalR].getElementsByClassName('text-right')
-    aux[0].innerText = total + '$'
+    total = Math.round(total * 100)/100
+    aux = cartRows[cartRows.length - 1].getElementsByClassName('text-right')[0].innerText = total + '$'
 }
 
 
