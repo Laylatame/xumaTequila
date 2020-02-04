@@ -126,3 +126,67 @@ function deleteCartItems(){
 
 //mandar correo
 //esto alv, no se como hacer :D
+
+
+if(document.readyState == 'loading'){
+    document.addEventListener('DOMContentLoaded',ready)
+}else{
+    ready()
+}
+
+function ready(){
+
+    $("#continue_button").on("click", function() {
+    window.location = "/shop";
+    });
+
+    var quantityInputs = document.getElementsByClassName('form-control')
+    for(var i = 0; i < quantityInputs.length; i++){
+        var input = quantityInputs[i]
+        input.addEventListener('change',quantityChanged)
+    }
+
+    var removeCartItemButtons = document.getElementsByClassName('btn btn-sm btn-danger')
+    console.log(removeCartItemButtons)
+    for(var i = 0; i < removeCartItemButtons; i++){
+        var buttona = removeCartItemButtons[i]
+        buttona.addEventListener("click",removeCartItem)
+    }
+
+}
+
+function removeCartItem(event){
+    console.log('ola')
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function quantityChanged(event){
+    var input = event.target
+    if(isNaN(input.value) || input.value <= 0){
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function updateCartTotal(){
+    var cartItemContainer = document.getElementById('cart-table')
+    var cartRows = cartItemContainer.getElementsByTagName('tr')
+    var total = 0
+    for(var i = 1;i < cartRows.length - 1; i++){
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('text-right')[0]
+        var quantityElement = cartRow.getElementsByClassName('form-control')[0]
+        var price = parseFloat(priceElement.innerText.replace('$',''))
+        var quantity = quantityElement.value
+        total = total + (price*quantity)
+    }
+    totalR = cartRows.length - 1
+    aux = cartRows[totalR].getElementsByClassName('text-right')
+    aux[0].innerText = total + '$'
+}
+
+
+
+
