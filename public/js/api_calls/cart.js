@@ -152,7 +152,6 @@ function ready(){
         var buttona = removeCartItemButtons[i]
         buttona.addEventListener("click",removeCartItem)
     }
-
 }
 
 function removeCartItem(event){
@@ -184,6 +183,10 @@ function updateCartTotal(){
     }
     total = Math.round(total * 100)/100
     aux = cartRows[cartRows.length - 1].getElementsByClassName('text-right')[0].innerText = total + '$'
+}
+
+function createTable(){
+
 }
 
 

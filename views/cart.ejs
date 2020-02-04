@@ -1,5 +1,12 @@
 <%- include('partials/header') -%>
  <body class="bg-light">
+  <style>
+    img{
+      height: 60px;
+      width: 50px;
+    }
+
+  </style>
 
 <section class="jumbotron text-center">
     <div class="container">
@@ -12,11 +19,10 @@
         <div class="col-12">
             <div class="table-responsive">
                 <table id="cart-table" class="table table-striped">
-                    <thead>
+                   <thead>
                         <tr>
                             <th scope="col"> </th>
                             <th scope="col">Producto</th>
-                            <th scope="col">Disponible</th>
                             <th scope="col" class="text-center">Cantidad</th>
                             <th scope="col" class="text-right">Costo</th>
                             <th> </th>
@@ -24,9 +30,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>s
+                          <td><img src="/img/portfolio/botella2.jpg"/> </td>
                             <td>Product Name Dada</td>
-                            <td>In stock</td>
                             <td>
                               <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon2" value = 1>
@@ -44,7 +49,7 @@
                             <td><strong>Total</strong></td>
                             <td class="text-right">346,90$</td>
                         </tr>
-                    </tbody>
+                    </tbody> 
                 </table>
             </div>
         </div>
@@ -60,8 +65,11 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
 
+<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
 <script type="text/javascript" src="/js/api_calls/cart.js"></script>
 
 </body>
