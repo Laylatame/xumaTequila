@@ -136,6 +136,10 @@ if(document.readyState == 'loading'){
 
 function ready(){
 
+    $("#checkout_button").on("click",function(){
+        window.location = "/checkout";
+    });
+
     $("#continue_button").on("click", function() {
     window.location = "/shop";
     });
