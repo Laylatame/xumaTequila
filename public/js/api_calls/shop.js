@@ -217,7 +217,8 @@ function llamarParaDetalleDeProducto() {
       detallesProducto = data;
     },
     error: function(error_msg) {
-      alert(error_msg["responseText"]);
+      //alert(error_msg["responseText"]);
+      alert("Error");
     }
   });
 }
