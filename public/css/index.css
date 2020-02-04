@@ -11,6 +11,7 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+
 p {
   line-height: 1.75;
 }
@@ -106,6 +107,7 @@ img::-moz-selection {
 .aboutus {
   padding: 30px;
   margin: 20px;
+
 }
 .btn-xl {
   font-size: 18px;

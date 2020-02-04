@@ -1,0 +1,107 @@
+
+<%- include('partials/header') -%>
+
+
+    <div class="bienvenida">
+
+        <div class="tituloBienv"><h2> Bienvenido a Control de Administrador</h2></div>
+        
+    
+    </div>
+            <form>
+
+                <h3> Crear nuevo producto</h3>
+                <div class="form-group">
+                  <label for="nombreProducto">Nombre producto</label>
+                  <input type="text" class="form-control" id="nombreProducto" aria-describedby="nombreHelp" placeholder="Ingresa nombre de producto">
+                  
+                </div>
+        
+                <div class="form-group">
+                  <label for="categoria">Categoria</label>
+                  <input type="text" class="form-control" id="categoria" placeholder="Ingresa categoria del producto">
+                </div>
+        
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="number" class="form-control" id="precio" placeholder="Ingresa precio del producto">
+                  </div>
+        
+                <div class="form-group">
+                    <label for="imgUrl">Imagen</label>
+                    <input type="text" class="form-control" id="imgUrl" placeholder="Ingresa URL de imagen de producto">
+                  </div>
+        
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" placeholder="Ingresa descripcion del producto">
+                  </div>
+                
+                <div class="form-group">
+                    <label for="size">Tamaño</label>
+                    <input type="text" class="form-control" id="size" placeholder="Ingresa tamaño del producto">
+                  </div>
+        
+              
+                <button type="submit" class="btn btn-primary" id="nuevoProducto">Crear</button>
+              </form>
+
+              <form id="delete">
+                <h3> Eliminar producto</h3>
+                <div class="form-group">
+                    <label for="idProductoDel">Id prodcuto</label>
+                    <input type="text" class="form-control" id="idProductoDel" aria-describedby="nombreHelp" placeholder="Ingresa id de producto">
+                    
+                  </div>
+                
+                <button type="submit" class="btn btn-primary" id="eliminarProducto">Eliminar</button>
+              </form>
+
+
+
+              <form id="update">
+                <h3> Actualizar producto</h3>
+                <div class="form-group">
+                    <label for="idProductoAct">Id prodcuto</label>
+                    <input type="text" class="form-control" id="idProductoAct" aria-describedby="nombreHelp" placeholder="Ingresa id de producto">
+                    <button class="btn btn-primary" id="buscar"> Buscar Producto</button>
+                  </div>
+                <div class="form-group">
+                  <label for="nombreProductoAct">Nombre producto</label>
+                  <input type="text" class="form-control" id="nombreProductoAct" aria-describedby="nombreHelp" placeholder="Ingresa nombre de producto">
+                  
+                </div>
+        
+                <div class="form-group">
+                  <label for="categoriaAct">Categoria</label>
+                  <input type="text" class="form-control" id="categoriaAct" placeholder="Ingresa categoria del producto">
+                </div>
+        
+                <div class="form-group">
+                    <label for="precioAct">Precio</label>
+                    <input type="number" class="form-control" id="precioAct" placeholder="Ingresa precio del producto">
+                  </div>
+        
+                <div class="form-group">
+                    <label for="imgUrlAct">Imagen</label>
+                    <input type="text" class="form-control" id="imgUrlAct" placeholder="Ingresa URL de imagen de producto">
+                  </div>
+        
+                <div class="form-group">
+                    <label for="descripcionAct">Descripción</label>
+                    <input type="text" class="form-control" id="descripcionAct" placeholder="Ingresa descripcion del producto">
+                  </div>
+                
+                <div class="form-group">
+                    <label for="sizeAct">Tamaño</label>
+                    <input type="text" class="form-control" id="sizeAct" placeholder="Ingresa tamaño del producto">
+                  </div>
+        
+              
+                <button type="submit" class="btn btn-primary" id="actualizarProducto">Actualizar</button>
+              </form>
+        
+      <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="/js/api_calls/administration.js"></script>
+
+  

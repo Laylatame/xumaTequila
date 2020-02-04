@@ -5,9 +5,12 @@ let app = express(); //Set up the endpoints
 let jsonParser = bodyParser.json();
 var path = require("path");
 
+var cors = require ("cors");
+
 //app.use(bodyParser.urlencoded({extended : true}));
 
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(cors())
 
 // set the view engine to ejs
 app.set("view engine", "ejs");
@@ -37,6 +40,11 @@ app.get("/faqs", function(req, res) {
 
 app.get("/cart", function(req, res) {
   res.render("cart");
+});
+
+//admin
+app.get("/admin", function(req, res) {
+  res.render("admin");
 });
 
 const port = process.env.PORT || 8080;
