@@ -27,7 +27,7 @@ function writeProducts(objectProducts, min, max) {
               <h4>${objectProducts[i].name}</h4>
               <p class="text-muted" id="prodCost">$${objectProducts[i].cost}</p>
               <p id="prodID" hidden>${objectProducts[i]._id}</p>
-              <button class="btn btn-primary addProduct">Añadir</button>
+              <button class="btn btn-primary active-tick addProduct">Añadir</button>
             </div>`;
 
       $("#productsDisplay").append(
@@ -217,7 +217,8 @@ function llamarParaDetalleDeProducto() {
       detallesProducto = data;
     },
     error: function(error_msg) {
-      alert(error_msg["responseText"]);
+      //alert(error_msg["responseText"]);
+      alert("Error");
     }
   });
 }
@@ -333,7 +334,7 @@ $(".restOneItem").on("click", function() {
 });
 
 $(".addOneItem").on("click", function() {
-  console.log("FUNCIONA MENOS");
+  console.log("FUNCIONA MAS");
   let divContent = $(this).parent()[0].children;
   let numberOfItems = divContent[2].innerText;
   let newNumber = Number(numberOfItems) + 1;

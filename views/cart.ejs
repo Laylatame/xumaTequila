@@ -1,146 +1,94 @@
 <%- include('partials/header') -%>
- <body class="bg-light">
+<link href="/css/index.css" rel="stylesheet" />
+<body class="bg-light">
+  <style>
+    img {
+      height: 60px;
+      width: 50px;
+    }
+  </style>
 
+  <section class="jumbotron text-center">
     <div class="container">
-      <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="./Checkout example for Bootstrap_files/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>Detalles de Compra</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Tu carrito</span>
-            <span class="badge badge-secondary badge-pill">3</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Producto 1</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Producto 2</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Producto 3</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (MXN)</span>
-              <strong>$200</strong>
-            </li>
-          </ul>
-
-        </div>
-        <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Datos de Contacto</h4>
-          <form class="needs-validation" novalidate="">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="firstName">Nombres</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Apellidos</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="username">Username<span class="text-muted">(Optional)</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="Username">
-                <div class="invalid-feedback" style="width: 100%;">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com"  required="">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
-            <hr class="mb-4">
-
-            <h4 class="mb-3">Pago</h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="tienda" name="paymentMethod" type="radio" class="custom-control-input" checked="">
-                <label class="custom-control-label" for="tienda">Recoger en Tienda</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input">
-                <label class="custom-control-label" for="paypal">Paypal</label>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Confirmar Compra</button>
-          </form>
-        </div>
-      </div>
-
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2019-2020 XUMA</p>
-      </footer>
+      <h1 class="jumbotron-heading">Carrito de Compras</h1>
     </div>
+  </section>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./Checkout example for Bootstrap_files/jquery-3.2.1.slim.min.js.descarga" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="./Checkout example for Bootstrap_files/popper.min.js.descarga"></script>
-    <script src="./Checkout example for Bootstrap_files/bootstrap.min.js.descarga"></script>
-    <script src="./Checkout example for Bootstrap_files/holder.min.js.descarga"></script>
-    <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table id="cart-table" class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Producto</th>
+                <th scope="col" class="text-center">Cantidad</th>
+                <th scope="col" class="text-right">Costo</th>
+                <th></th>
+              </tr>
+              <tr>
+                <td><img src="/img/portfolio/botella1.jpg" /></td>
+                <td>Tequila Mango</td>
+                <td>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Cantidad"
+                      aria-label="Cantidad"
+                      aria-describedby="basic-addon2"
+                      value="1"
+                    />
+                  </div>
+                </td>
+                <td class="text-right">$1000</td>
+                <td class="text-right">
+                  <button
+                    class="btn btn-sm btn-danger"
+                    onclick="eliminarProd()"
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            </thead>
+            <tbody id="showProdTable"></tbody>
+            <tr id="totalPrice"></tr>
+          </table>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="row">
+          <div class="col-sm-12  col-md-6 text-right">
+            <button
+              id="continue_button"
+              class="btn btn-lg  btn-block btn-warning"
+              href="/shop"
+            >
+              Continuar Comprando
+            </button>
+          </div>
+          <div class="col-sm-12 col-md-6 text-right">
+            <button
+              id="checkout_button"
+              class="btn btn-lg btn-block btn-success text-uppercase"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
+  <link
+    href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css"
+    rel="stylesheet"
+  />
 
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-    </script>
-
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/api_calls/cart.js"></script>  
-
+  <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+  <script type="text/javascript" src="/js/api_calls/cart.js"></script>
 </body>
 <%- include('partials/footer') -%>
