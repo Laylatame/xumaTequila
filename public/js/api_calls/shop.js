@@ -175,7 +175,22 @@ $("#btnFilterProd").on("click", function() {
   console.log(max);
 
   if (category == "todos") {
-    loadProducts(min, max);
+    $.ajax({
+      url: "https://apixuma.herokuapp.com/products",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "GET",
+      dataType: "json",
+      success: function(data) {
+        objectProducts = data;
+        console.log(objectProducts);
+        writeProducts(objectProducts, min, max);
+      },
+      error: function(error_msg) {
+        alert(error_msg["responseText"]);
+      }
+    });
   } else {
     $.ajax({
       url: "https://apixuma.herokuapp.com/productsCat/" + category,

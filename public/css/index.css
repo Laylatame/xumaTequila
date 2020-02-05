@@ -194,10 +194,13 @@ img::-moz-selection {
 }
 
 .filterProd {
-  width: 50%;
+  width: 60em;
+
+
 }
 
 .priceSlider {
+  min-width: 15em;
   margin: 40px 0px;
   display: flex;
   flex-direction: column;
