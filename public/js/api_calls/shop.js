@@ -27,7 +27,7 @@ function writeProducts(objectProducts, min, max) {
               <h4>${objectProducts[i].name}</h4>
               <p class="text-muted" id="prodCost">$${objectProducts[i].cost}</p>
               <p id="prodID" hidden>${objectProducts[i]._id}</p>
-              <button class="btn btn-primary addProduct">Añadir</button>
+              <button class="btn btn-primary active-tick addProduct">Añadir</button>
             </div>`;
 
       $("#productsDisplay").append(
