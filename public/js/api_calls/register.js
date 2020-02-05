@@ -1,7 +1,7 @@
 $('#register_button').on('click',function(){
     console.log("simon")
-    user = $('#modalLRInput15').val()
-    name = $('#modalLRInput12').val()
+    user = $('#modalLRInput12').val()
+    name = $('#modalLRInput15').val()
 	  password = $('#modalLRInput13').val()
     
 	json_to_send = {
