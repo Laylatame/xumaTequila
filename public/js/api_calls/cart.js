@@ -167,60 +167,60 @@ getCartItems();
 // $(".btn-danger").on("click", function() {
 //   console.log("FUNCIONA");
 // });
-// function eliminarProd() {
-//   console.log("Funciona");
+function eliminarProd(id) {
+  console.log("Funciona");
+  let div = document.getElementById(id);
+  console.log(div);
+  //cuando no hay login
+  if (user == null) {
+    console.log("NO HAY USUARIO");
+    //Si no hay carrito existente imprime en consola que no hay nada
+    if (sessionStorage.cart === undefined) {
+      console.log("No hay un carrito existente");
+      $("#showProdTable").append(
+        `<tr> <td></td><td></td><td>No hay productos en el carrito</td><td></td><td></td></td>/tr>`
+      );
+      document.getElementById("totalPrice").hidden = true;
+    } else {
+      cart = JSON.parse(sessionStorage.cart);
+      console.log(cart);
 
-//   console.log($(this).parent());
-//   //cuando no hay login
-//   if (user == null) {
-//     console.log("NO HAY USUARIO");
-//     //Si no hay carrito existente imprime en consola que no hay nada
-//     if (sessionStorage.cart === undefined) {
-//       console.log("No hay un carrito existente");
-//       $("#showProdTable").append(
-//         `<tr> <td></td><td></td><td>No hay productos en el carrito</td><td></td><td></td></td>/tr>`
-//       );
-//       document.getElementById("totalPrice").hidden = true;
-//     } else {
-//       cart = JSON.parse(sessionStorage.cart);
-//       console.log(cart);
+      while (cart.length > 0) {
+        var prodId = cart[0].product;
+        var current = cart.filter(obj => obj.product === prodId);
+        var toDelete = new Set([prodId]);
+        cart = cart.filter(obj => !toDelete.has(obj.product));
 
-//       while (cart.length > 0) {
-//         var prodId = cart[0].product;
-//         var current = cart.filter(obj => obj.product === prodId);
-//         var toDelete = new Set([prodId]);
-//         cart = cart.filter(obj => !toDelete.has(obj.product));
+        productDetails(prodId, countItems(current));
+      }
+      let allItems = document.getElementsByTagName("tr");
+      let totalPrice = countTotal(allItems);
+      console.log(allItems);
 
-//         productDetails(prodId, countItems(current));
-//       }
-//       let allItems = document.getElementsByTagName("tr");
-//       let totalPrice = countTotal(allItems);
-//       console.log(allItems);
-
-//       $("#totalPrice").append(`<td></td>
-//               <td></td>
-//               <td><strong>Total</strong></td>
-//               <td class="text-right">$${totalPrice}</td>
-//               <td></td>`);
-//     }
-//   } else {
-//     // cuando si hay login
-//     $.ajax({
-//       url: "https://apixuma.herokuapp.com/cart/" + cartId,
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       method: "DELETE",
-//       dataType: "json",
-//       success: function() {
-//         console.log("Success");
-//       },
-//       error: function(error_msg) {
-//         alert(error_msg["responseText"]);
-//       }
-//     });
-//   }
-// }
+      $("#totalPrice").append(`<td></td>
+              <td></td>
+              <td><strong>Total</strong></td>
+              <td class="text-right">$${totalPrice}</td>
+              <td></td>`);
+    }
+  } else {
+    // cuando si hay login
+    $.ajax({
+      url: "https://apixuma.herokuapp.com/cart/" + cartId,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE",
+      dataType: "json",
+      success: function() {
+        console.log("Success");
+      },
+      error: function(error_msg) {
+        alert(error_msg["responseText"]);
+      }
+    });
+  }
+}
 
 // //getDatosUser
 // //cuando hay login

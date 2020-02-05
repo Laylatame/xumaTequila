@@ -233,6 +233,7 @@ function addCartItem(id, numItems, prodCost) {
   idProduct = id;
   numberOfItems = numItems;
   costProduct = prodCost;
+  console.log(numItems);
 
   //checar si no hay un login
   if (user == null) {
@@ -245,41 +246,94 @@ function addCartItem(id, numItems, prodCost) {
           cost: costProduct
         }
       ];
+      console.log("No hay usuario ni carrito");
 
       sessionStorage.setItem("cart", JSON.stringify(cart));
     } else {
       // si si existe traemos el objeto y le agregamos el nuevo cartItem y lo guardamos de nuevo
+      console.log("No hay usuario pero sí carrito");
+
       var cart = JSON.parse(sessionStorage.cart);
-      cart.push({
-        product: idProduct,
-        numberOfItems: numberOfItems,
-        cost: costProduct
-      });
-      sessionStorage.setItem("cart", JSON.stringify(cart));
+      console.log(cart);
+      for (let i = 0; i < cart.length; i++) {
+        if (cart[i].product == idProduct) {
+          console.log("Ya existia este item");
+          cart[i].numberOfItems = cart[i].numberOfItems + numberOfItems;
+          sessionStorage.setItem("cart", JSON.stringify(cart));
+          break;
+        } else {
+          console.log("No existia este item");
+          cart.push({
+            product: idProduct,
+            numberOfItems: numberOfItems,
+            cost: costProduct
+          });
+          sessionStorage.setItem("cart", JSON.stringify(cart));
+          break;
+        }
+      }
     }
   } else {
-    // si si existe un login hacemos el guardado del cartItem en la base de datos
-    json_to_send = {
+    //Si sí hay usuario login
+    var json_to_send = {
       user: user,
       product: idProduct,
       numberOfItems: numberOfItems,
       cost: costProduct
     };
 
-    console.log(json_to_send);
-
-    json_to_send = JSON.stringify(json_to_send);
+    json_to_send = JSON.stringify(json_to_send); // si si existe un login hacemos el guardado del cartItem en la base de datos
 
     $.ajax({
-      url: "https://apixuma.herokuapp.com/cart",
+      url: "https://apixuma.herokuapp.com/cart/" + user + "/" + idProduct,
       headers: {
         "Content-Type": "application/json"
       },
-      method: "POST",
+      method: "GET",
       dataType: "json",
-      data: json_to_send,
       success: function(data) {
         console.log(data);
+        if (data.length == 0) {
+          console.log("NO EXISTIA");
+          $.ajax({
+            url: "https://apixuma.herokuapp.com/cart",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            method: "POST",
+            dataType: "json",
+            data: json_to_send,
+            success: function(data) {
+              console.log(data);
+            },
+            error: function(error_msg) {
+              alert(error_msg["responseText"]);
+            }
+          });
+        } else {
+          console.log("SI EXISTE");
+          var cartId = data[0]._id;
+          var newItems = data[0].numberOfItems + numItems;
+          json_items = {
+            numberOfItems: newItems
+          };
+          json_items = JSON.stringify(json_items);
+          $.ajax({
+            url: "https://apixuma.herokuapp.com/cart/" + cartId,
+            headers: {
+              "Content-Type": "application/json"
+            },
+            method: "PATCH",
+            dataType: "json",
+            data: json_items,
+            success: function(data1) {
+              console.log(data1);
+            },
+            error: function(error_msg) {
+              alert(error_msg["responseText"]);
+            }
+          });
+        }
       },
       error: function(error_msg) {
         alert(error_msg["responseText"]);
@@ -302,6 +356,12 @@ $(".addProduct").on("click", function() {
   //   console.log(costProduct);
   addCartItem(idProduct, numberOfItems, costProduct);
 });
+
+// function addProduct(idDiv) {
+//   console.log("FUNCIONA AQUI");
+//   let divContent = document.getElementById(idDiv);
+//   console.log(divContent.parent()[0].children);
+// }
 
 //Add product modal
 $(".addProductModal").on("click", function() {
