@@ -12,7 +12,7 @@ function countItems(currCart) {
   return numItems;
 }
 
-function displayItems(name, image, quantity, cost) {
+function displayItems(name, image, quantity, cost, idProduct) {
   let totCost = quantity * cost;
   let product = `<tr>
                   <td><img src="${image}" /></td>
@@ -33,7 +33,7 @@ function displayItems(name, image, quantity, cost) {
                   <td class="text-right">
                     <button
                     class="btn btn-sm btn-danger"
-                    onclick="eliminarProd()"
+                    onclick="eliminarProd('${idProduct}')"
                   >Eliminar</button>
                   </td>
                 </tr>`;
@@ -57,7 +57,7 @@ function productDetails(id, quantity) {
     method: "GET",
     dataType: "json",
     success: function(data) {
-      displayItems(data.name, data.image, quantity, data.cost);
+      displayItems(data.name, data.image, quantity, data.cost, idProduct);
     },
     error: function(error_msg) {
       //alert(error_msg["responseText"]);
@@ -167,41 +167,28 @@ getCartItems();
 // $(".btn-danger").on("click", function() {
 //   console.log("FUNCIONA");
 // });
-function eliminarProd(id) {
+function eliminarProd(cartId) {
   console.log("Funciona");
-  let div = document.getElementById(id);
-  console.log(div);
+  console.log(cartId);
+  //   let div = document.getElementById(cartId);
+  //   console.log(div.parentElement.parentElement);
+
   //cuando no hay login
   if (user == null) {
     console.log("NO HAY USUARIO");
     //Si no hay carrito existente imprime en consola que no hay nada
     if (sessionStorage.cart === undefined) {
-      console.log("No hay un carrito existente");
-      $("#showProdTable").append(
-        `<tr> <td></td><td></td><td>No hay productos en el carrito</td><td></td><td></td></td>/tr>`
-      );
-      document.getElementById("totalPrice").hidden = true;
     } else {
       cart = JSON.parse(sessionStorage.cart);
       console.log(cart);
 
-      while (cart.length > 0) {
-        var prodId = cart[0].product;
-        var current = cart.filter(obj => obj.product === prodId);
-        var toDelete = new Set([prodId]);
-        cart = cart.filter(obj => !toDelete.has(obj.product));
+      var toDelete = new Set([cartId]);
+      cart = cart.filter(obj => !toDelete.has(obj.product));
+      console.log(cart);
 
-        productDetails(prodId, countItems(current));
-      }
-      let allItems = document.getElementsByTagName("tr");
-      let totalPrice = countTotal(allItems);
-      console.log(allItems);
-
-      $("#totalPrice").append(`<td></td>
-              <td></td>
-              <td><strong>Total</strong></td>
-              <td class="text-right">$${totalPrice}</td>
-              <td></td>`);
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+      $("#cart-table").load(document.URL + " #cart-table");
+      getCartItems();
     }
   } else {
     // cuando si hay login
