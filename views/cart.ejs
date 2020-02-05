@@ -27,9 +27,33 @@
                 <th scope="col" class="text-right">Costo</th>
                 <th></th>
               </tr>
+              <tr>
+                <td><img src="/img/portfolio/botella1.jpg" /></td>
+                <td>Tequila Mango</td>
+                <td>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Cantidad"
+                      aria-label="Cantidad"
+                      aria-describedby="basic-addon2"
+                      value="1"
+                    />
+                  </div>
+                </td>
+                <td class="text-right">$1000</td>
+                <td class="text-right">
+                  <button
+                    class="btn btn-sm btn-danger"
+                    onclick="eliminarProd()"
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
             </thead>
-            <tbody id="showProdTable">
-            </tbody>
+            <tbody id="showProdTable"></tbody>
             <tr id="totalPrice"></tr>
           </table>
         </div>
