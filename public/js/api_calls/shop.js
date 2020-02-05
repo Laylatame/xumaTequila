@@ -238,7 +238,7 @@ function addCartItem(id, numItems, prodCost) {
   //checar si no hay un login
   if (user == null) {
     // si no existe un carrito en session storage crea uno nuevo con el objeto de carrito
-    if (sessionStorage.cart === undefined) {
+    if (sessionStorage.cart === undefined || sessionStorage.cart.length == 0) {
       cart = [
         {
           product: idProduct,
@@ -255,21 +255,35 @@ function addCartItem(id, numItems, prodCost) {
 
       var cart = JSON.parse(sessionStorage.cart);
       console.log(cart);
-      for (let i = 0; i < cart.length; i++) {
-        if (cart[i].product == idProduct) {
-          console.log("Ya existia este item");
-          cart[i].numberOfItems = cart[i].numberOfItems + numberOfItems;
-          sessionStorage.setItem("cart", JSON.stringify(cart));
-          break;
-        } else {
-          console.log("No existia este item");
-          cart.push({
+
+      if (cart.length == 0) {
+        cart = [
+          {
             product: idProduct,
             numberOfItems: numberOfItems,
             cost: costProduct
-          });
-          sessionStorage.setItem("cart", JSON.stringify(cart));
-          break;
+          }
+        ];
+        console.log("No hay usuario si carrito pero está vacio");
+
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+      } else {
+        for (let i = 0; i < cart.length; i++) {
+          if (cart[i].product == idProduct) {
+            console.log("Ya existia este item");
+            cart[i].numberOfItems = cart[i].numberOfItems + numberOfItems;
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            break;
+          } else {
+            console.log("No existia este item");
+            cart.push({
+              product: idProduct,
+              numberOfItems: numberOfItems,
+              cost: costProduct
+            });
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            break;
+          }
         }
       }
     }
