@@ -111,15 +111,17 @@ $("#buscar").on("click", function(event) {
 
 $("#actualizarProducto").on("click", function(event) {
   event.preventDefault();
-  let idProducto = $("idProductoAct").val();
+  let idProducto = $("#idProductoAct").val();
   let name = $("#nombreProductoAct").val();
   let category = $("#categoriaAct").val();
   let cost = $("#precioAct").val();
+  let desc = $("descAct").val();
   let img = $("#imgUrlAct").val();
   let description = $("#descripcionAct").val();
-  let size = $("#sizeAct").val();
+  let active = $("#activoAct").val();
 
-  updateProduct(idProducto,name,category,cost,img,description,size);
+  console.log(idProducto);
+  updateProduct(idProducto,name,category,cost,img,description);
 
  
 
@@ -128,7 +130,7 @@ $("#actualizarProducto").on("click", function(event) {
 
 
 //updateProduct
-function updateProduct(idProducto,name,category,cost,image,description,size){
+function updateProduct(idProducto,name,category,cost,image,description){
 
     //id de producto a updatear
     //idProducto = '5e33df7b3fcb7200176b650b'
@@ -139,12 +141,13 @@ function updateProduct(idProducto,name,category,cost,image,description,size){
       "category": category,
       "cost": cost,
       "image": image,
-      "description": description,
-      "size": size
+      "descripcion": description
+      
 }
     console.log(json_to_send)
 
     json_to_send = JSON.stringify(json_to_send);
+   
 
     $.ajax({
         url: 'https://apixuma.herokuapp.com/product/' + idProducto,
@@ -155,7 +158,7 @@ function updateProduct(idProducto,name,category,cost,image,description,size){
         dataType: 'json',
         data: json_to_send,
         success: function(data){
-          console.log('success: '+ data);
+         // console.log('success: '+ data);
         },
         error: function(error_msg) {
           alert((error_msg['responseText']));
