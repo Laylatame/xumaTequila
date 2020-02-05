@@ -334,7 +334,7 @@ $(".restOneItem").on("click", function() {
 });
 
 $(".addOneItem").on("click", function() {
-  console.log("FUNCIONA MENOS");
+  console.log("FUNCIONA MAS");
   let divContent = $(this).parent()[0].children;
   let numberOfItems = divContent[2].innerText;
   let newNumber = Number(numberOfItems) + 1;
