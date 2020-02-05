@@ -63,4 +63,4 @@ $('#register_button').on('click',function(){
       }
     });
     
-})
+});
