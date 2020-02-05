@@ -28,6 +28,13 @@
       color: black;
       background-color: white;
     }
+  .modal{
+    overflow:hidden;
+    }
+    .modal-body{
+    overflow:auto;
+    }
+
   </style>
   <!-- Navigation -->
 
@@ -90,7 +97,7 @@
     aria-labelledby="myModalLabel"
     aria-hidden="true"
   >
-    <div class="modal-dialog cascading-modal" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <!--Content-->
       <div class="modal-content">
         <!--Modal cascading tabs-->
@@ -110,9 +117,12 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"
-                ><i class="fas fa-user-plus mr-1"></i> Registro</a
+              <a class="nav-link" 
+              data-toggle="tab" 
+              href="#panel8" 
+              role="tab"
               >
+                <i class="fas fa-user-plus mr-1"></i> Registro</a>
             </li>
           </ul>
 
