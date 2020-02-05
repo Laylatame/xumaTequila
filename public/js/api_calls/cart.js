@@ -1,9 +1,8 @@
 var user = localStorage.getItem("user");
 
-    $("#continue_button").on("click", function() {
-     window.location = "/shop";
-     });
-
+$("#continue_button").on("click", function() {
+  window.location = "/shop";
+});
 
 function countItems(currCart) {
   var numItems = 0;
@@ -256,24 +255,23 @@ function deleteCartItems() {
 //     window.location = "/shop";
 //     });
 
-  $("#continue_button").on("click", function() {
-    window.location = "/shop";
-  });
+$("#continue_button").on("click", function() {
+  window.location = "/shop";
+});
 
-  var quantityInputs = document.getElementsByClassName("form-control");
-  for (var i = 0; i < quantityInputs.length; i++) {
-    var input = quantityInputs[i];
-    input.addEventListener("change", quantityChanged);
-  }
+var quantityInputs = document.getElementsByClassName("form-control");
+for (var i = 0; i < quantityInputs.length; i++) {
+  var input = quantityInputs[i];
+  input.addEventListener("change", quantityChanged);
+}
 
-  var removeCartItemButtons = document.getElementsByClassName(
-    "btn btn-sm btn-danger"
-  );
-  console.log(removeCartItemButtons);
-  for (var i = 0; i < removeCartItemButtons.length; i++) {
-    var buttona = removeCartItemButtons[i];
-    buttona.addEventListener("click", removeCartItem);
-  }
+var removeCartItemButtons = document.getElementsByClassName(
+  "btn btn-sm btn-danger"
+);
+console.log(removeCartItemButtons);
+for (var i = 0; i < removeCartItemButtons.length; i++) {
+  var buttona = removeCartItemButtons[i];
+  buttona.addEventListener("click", removeCartItem);
 }
 
 function removeCartItem(event) {
