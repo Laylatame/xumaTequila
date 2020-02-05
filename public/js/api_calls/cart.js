@@ -201,6 +201,8 @@ function eliminarProd(cartId) {
       dataType: "json",
       success: function() {
         console.log("Success");
+        $("#cart-table").load(document.URL + " #cart-table");
+        getCartItems();
       },
       error: function(error_msg) {
         alert(error_msg["responseText"]);
