@@ -15,6 +15,8 @@ function countItems(currCart) {
 //Detectar cambios en cantidades
 $(document).on("input", ".myElements", function() {
   var currQuantity = Number($(this).val());
+  let inp = $(this);
+  console.log(inp);
 
   if (currQuantity == 0) {
     console.log("No cambiar nada");
@@ -25,6 +27,9 @@ $(document).on("input", ".myElements", function() {
     if (user == null) {
       var cart = JSON.parse(sessionStorage.cart);
       console.log($(this));
+
+      var r3 = inp.closest("thead > tr");
+      console.log(r3);
 
       // for (let i = 0; i < cart.length; i++) {
       //   if (cart[i].product == idProduct) {
