@@ -1,0 +1,38 @@
+
+<html>
+<%- include('partials/header') -%>
+<link href="/css/index.css" rel="stylesheet" />
+<link href="/css/login.css" rel="stylesheet" />
+<body>
+    <div id="logreg-forms">
+        <form class="form-signin">
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Inicio de Sesion</h1>
+
+            <input type="email" id="username" class="form-control" placeholder="Correo" required="" autofocus="">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contrasena" required="">
+            
+            <button id="login_button" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</button>
+            <hr>
+            <!-- <p>Don't have an account!</p>  -->
+            <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Registrar Cuenta Nueva</button>
+            </form>
+            
+            <form action="#" class="form-signup">
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Registro</h1>
+                <input type="text" id="user-name" class="form-control" placeholder="Usuario" required="" autofocus="">
+                <input type="email" id="user-email" class="form-control" placeholder="Correo electronico" required autofocus="">
+                <input type="password" id="user-pass" class="form-control" placeholder="Contrasena" required autofocus="">
+                <input type="password" id="user-repeatpass" class="form-control" placeholder="Repetir Contrasena" required autofocus="">
+
+                <button id='register_button' class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Registrarse</button>
+
+                <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Atras</a>
+            </form>
+            <br>
+            
+    </div>
+</body>
+<%- include('partials/footer') -%>
+    <script src="js/login.js"></script>
+    <script src="js/api_calls/login.js"></script>
+</html>
