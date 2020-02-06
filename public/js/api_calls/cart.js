@@ -282,9 +282,6 @@ function getCartItems() {
 
 getCartItems();
 
-// $(".btn-danger").on("click", function() {
-//   console.log("FUNCIONA");
-// });
 function eliminarProd(cartId) {
   console.log("Funciona");
   console.log(cartId);

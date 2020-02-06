@@ -69,6 +69,11 @@ h6 {
   width: 10em;
 }
 
+.filterProd{
+  width: 10em;
+  max-width: 10em;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 150px 0;
@@ -273,6 +278,7 @@ header.masthead .intro-text .intro-heading {
 #portfolio .portfolio-item {
   right: 0;
   margin: 0 0 15px;
+  min-width: 158px;
 }
 
 #portfolio .portfolio-item .portfolio-link {
@@ -281,6 +287,7 @@ header.masthead .intro-text .intro-heading {
   max-width: 400px;
   margin: 0 auto;
   cursor: pointer;
+  min-width: 350px;
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover {
@@ -402,6 +409,8 @@ header.masthead .intro-text .intro-heading {
 
 .portfolio-modal .modal-content img {
   margin-bottom: 30px;
+  min-width: 158px;
+  min-height: 350px;
 }
 
 .portfolio-modal .modal-content button {
