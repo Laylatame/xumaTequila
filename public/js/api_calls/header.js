@@ -1,23 +1,20 @@
-let user = localStorage.getItem("user");
+let user2 = localStorage.getItem("user");
 
-function init(){
-console.log(user);
+function init() {
+  console.log(user2);
 
-if (user != null){
+  if (user2 != null) {
     $("#login").hide();
     $("#logout").show();
-} else {
+  } else {
     $("#login").show();
     $("#logout").hide();
-}
+  }
 }
 
-
-$('#logout').on('click',function(){
-    localStorage.removeItem("user");
-    init();
+$("#logout").on("click", function() {
+  localStorage.removeItem("user");
+  init();
 });
-
-
 
 init();
