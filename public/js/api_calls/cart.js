@@ -189,18 +189,18 @@ function productDetails(id, quantity) {
 }
 
 //How to loop through all
-// function countTotal(allItems) {
-//   var total = 0;
-//   console.log(allItems);
-//   console.log(allItems.length);
-//   for (let i = 1; i < allItems.length - 1; i++) {
-//     cost = allItems[i].children[3].innerText;
-//     cost = cost.substring(1);
-//     console.log(cost);
+function countTotal(allItems) {
+  var total = 0;
+  console.log(allItems);
+  console.log(allItems.length);
+  for (let i = 1; i < allItems.length - 1; i++) {
+    cost = allItems[i].children[3].innerText;
+    cost = cost.substring(1);
+    console.log(cost);
 
-//     total = total + Number(cost);
-//   }
-// }
+    total = total + Number(cost);
+  }
+}
 
 //getCartItems
 function getCartItems() {
@@ -423,9 +423,9 @@ function eliminarProd(cartId) {
 // //     window.location = "/shop";
 // //     });
 
- $("#checkout_button").on("click", function() {
-   window.location = "/checkout";
- });
+$("#checkout_button").on("click", function() {
+  window.location = "/checkout";
+});
 
 // var quantityInputs = document.getElementsByClassName("form-control");
 // for (var i = 0; i < quantityInputs.length; i++) {
