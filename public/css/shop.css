@@ -69,6 +69,11 @@ h6 {
   width: 10em;
 }
 
+.filterProd{
+  width: 10em;
+  max-width: 10em;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 150px 0;
