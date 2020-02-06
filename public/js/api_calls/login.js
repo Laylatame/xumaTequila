@@ -1,3 +1,4 @@
+
 $("#login_button").on("click", function() {
   //console.log("simon")
   user = $("#username").val();
@@ -23,6 +24,7 @@ $("#login_button").on("click", function() {
       console.log('success: '+ data.user);
       localStorage.setItem("user", data.user._id);
       window.location = "/index"
+     
     },
     error: function(error_msg) {
       alert(error_msg["responseText"]);
@@ -31,13 +33,13 @@ $("#login_button").on("click", function() {
 });
 
 $('#register_button').on('click',function(){
-    console.log("simon")
-    user = $('#user-email').val()
+    //console.log("simon")
+    mail = $('#user-email').val()
     name = $('#user-name').val()
     password = $('#user-pass').val()
     
   json_to_send = {
-    "email": user,
+    "email": mail,
     "password": password,
     "name": name
   }
@@ -54,9 +56,12 @@ $('#register_button').on('click',function(){
       dataType: 'json',
       data: json_to_send,
       success: function(data){
+        console.log("simon");
         console.log('success: '+ data);
         //localStorage.setItem('user', data.user._id);
         window.location = '/index'
+        
+        
 
       },
       error: function(error_msg) {
