@@ -303,9 +303,9 @@ function eliminarProd(cartId) {
 // //     window.location = "/shop";
 // //     });
 
-// $("#continue_button").on("click", function() {
-//   window.location = "/shop";
-// });
+ $("#checkout_button").on("click", function() {
+   window.location = "/checkout";
+ });
 
 // var quantityInputs = document.getElementsByClassName("form-control");
 // for (var i = 0; i < quantityInputs.length; i++) {
