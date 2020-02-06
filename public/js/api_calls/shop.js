@@ -1,6 +1,6 @@
 objectProducts = [];
 
-var user = localStorage.getItem("user");
+//var user = localStorage.getItem("user");
 
 function writeProducts(objectProducts, min, max) {
   for (let i = 0; i < objectProducts.length; i++) {
