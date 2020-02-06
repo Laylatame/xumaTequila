@@ -12,6 +12,125 @@ function countItems(currCart) {
   return numItems;
 }
 
+//Detectar cambios en cantidades
+$(document).on("input", ".myElements", function() {
+  var currQuantity = Number($(this).val());
+
+  if (currQuantity == 0) {
+    console.log("No cambiar nada");
+  } else {
+    console.log(currQuantity);
+
+    //checar si no hay un login
+    if (user == null) {
+      var cart = JSON.parse(sessionStorage.cart);
+      console.log($(this));
+
+      // for (let i = 0; i < cart.length; i++) {
+      //   if (cart[i].product == idProduct) {
+      //     console.log("Ya existia este item");
+      //     cart[i].numberOfItems = cart[i].numberOfItems + numberOfItems;
+      //     sessionStorage.setItem("cart", JSON.stringify(cart));
+      //     break;
+      //   } else {
+      //     console.log("No existia este item");
+      //     cart.push({
+      //       product: idProduct,
+      //       numberOfItems: numberOfItems,
+      //       cost: costProduct
+      //     });
+      //     sessionStorage.setItem("cart", JSON.stringify(cart));
+      //     break;
+      //   }
+      // }
+    } else {
+      //Si sí hay usuario login
+      var json_to_send = {
+        user: user,
+        product: idProduct,
+        numberOfItems: numberOfItems,
+        cost: costProduct
+      };
+
+      json_to_send = JSON.stringify(json_to_send); // si si existe un login hacemos el guardado del cartItem en la base de datos
+
+      $.ajax({
+        url: "https://apixuma.herokuapp.com/cart/" + user + "/" + idProduct,
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
+          if (data.length == 0) {
+            console.log("NO EXISTIA");
+            $.ajax({
+              url: "https://apixuma.herokuapp.com/cart",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              method: "POST",
+              dataType: "json",
+              data: json_to_send,
+              success: function(data) {
+                console.log(data);
+              },
+              error: function(error_msg) {
+                alert(error_msg["responseText"]);
+              }
+            });
+          } else {
+            console.log("SI EXISTE");
+            var cartId = data[0]._id;
+            var newItems = data[0].numberOfItems + numItems;
+            json_items = {
+              numberOfItems: newItems
+            };
+            json_items = JSON.stringify(json_items);
+            $.ajax({
+              url: "https://apixuma.herokuapp.com/cart/" + cartId,
+              headers: {
+                "Content-Type": "application/json"
+              },
+              method: "PATCH",
+              dataType: "json",
+              data: json_items,
+              success: function(data1) {
+                console.log(data1);
+              },
+              error: function(error_msg) {
+                alert(error_msg["responseText"]);
+              }
+            });
+          }
+        },
+        error: function(error_msg) {
+          alert(error_msg["responseText"]);
+        }
+      });
+    }
+  }
+});
+
+function calculateTotal() {
+  let total = 0;
+  let division = document.getElementsByClassName("priceCart");
+  var arrDiv = [...division];
+  console.log(division);
+  console.log(arrDiv);
+
+  for (let i = 0; i < division.length; i++) {
+    console.log(division[i].innerHTML);
+  }
+
+  // $("#totalPrice").append(`<td></td>
+  //             <td></td>
+  //             <td><strong>Total</strong></td>
+  //             <td class="text-right">$${totalPrice}</td>
+  //             <td></td>`);
+}
+
 function displayItems(name, image, quantity, cost, idProduct) {
   let totCost = quantity * cost;
   let product = `<tr>
@@ -21,7 +140,7 @@ function displayItems(name, image, quantity, cost, idProduct) {
                     <div class="input-group">
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control myElements"
                         placeholder="Cantidad"
                         aria-label="Cantidad"
                         aria-describedby="basic-addon2"
@@ -29,7 +148,7 @@ function displayItems(name, image, quantity, cost, idProduct) {
                       />
                     </div>
                   </td>
-                  <td class="text-right">$${totCost}</td>
+                  <td class="text-right priceCart">$${totCost}</td>
                   <td class="text-right">
                     <button
                     class="btn btn-sm btn-danger"
@@ -42,9 +161,6 @@ function displayItems(name, image, quantity, cost, idProduct) {
 }
 
 function productDetails(id, quantity) {
-  // en esta variable poner el id del producto que vamos a llamar
-  // el id se ocupa para la ruta
-  // ahorita estamos poniendo un id xs
   idProduct = id;
 
   detallesProducto = [];
@@ -57,6 +173,7 @@ function productDetails(id, quantity) {
     method: "GET",
     dataType: "json",
     success: function(data) {
+      console.log(data);
       displayItems(data.name, data.image, quantity, data.cost, idProduct);
     },
     error: function(error_msg) {
@@ -67,18 +184,18 @@ function productDetails(id, quantity) {
 }
 
 //How to loop through all
-function countTotal(allItems) {
-  var total = 0;
-  console.log(allItems);
-  console.log(allItems.length);
-  for (let i = 1; i < allItems.length - 1; i++) {
-    cost = allItems[i].children[3].innerText;
-    cost = cost.substring(1);
-    console.log(cost);
+// function countTotal(allItems) {
+//   var total = 0;
+//   console.log(allItems);
+//   console.log(allItems.length);
+//   for (let i = 1; i < allItems.length - 1; i++) {
+//     cost = allItems[i].children[3].innerText;
+//     cost = cost.substring(1);
+//     console.log(cost);
 
-    total = total + Number(cost);
-  }
-}
+//     total = total + Number(cost);
+//   }
+// }
 
 //getCartItems
 function getCartItems() {
@@ -100,6 +217,7 @@ function getCartItems() {
 
       while (cart.length > 0) {
         var prodId = cart[0].product;
+        var numItems = cart[0].numberOfItems;
         var current = cart.filter(obj => obj.product === prodId);
         var toDelete = new Set([prodId]);
         cart = cart.filter(obj => !toDelete.has(obj.product));
@@ -109,12 +227,6 @@ function getCartItems() {
       let allItems = document.getElementsByTagName("tr");
       let totalPrice = countTotal(allItems);
       console.log(allItems);
-
-      $("#totalPrice").append(`<td></td>
-              <td></td>
-              <td><strong>Total</strong></td>
-              <td class="text-right">$${totalPrice}</td>
-              <td></td>`);
     }
   } else {
     // cuando si hay login
@@ -143,14 +255,14 @@ function getCartItems() {
             productDetails(prodId, countItems(current));
           }
           let allItems = document.getElementsByTagName("tr");
-          let totalPrice = countTotal(allItems);
+          //let totalPrice = countTotal(allItems);
           console.log(allItems);
 
-          $("#totalPrice").append(`<td></td>
-              <td></td>
-              <td><strong>Total</strong></td>
-              <td class="text-right">$${totalPrice}</td>
-              <td></td>`);
+          // $("#totalPrice").append(`<td></td>
+          //     <td></td>
+          //     <td><strong>Total</strong></td>
+          //     <td class="text-right">$${totalPrice}</td>
+          //     <td></td>`);
         }
       },
       error: function(error_msg) {
@@ -158,6 +270,7 @@ function getCartItems() {
       }
     });
   }
+  calculateTotal();
 
   //console.log(cart);
 }
